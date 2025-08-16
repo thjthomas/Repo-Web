@@ -75,7 +75,6 @@
 * {
   border-color: var(--border);
   outline-color: var(--ring);
-  outline-opacity: 0.5;
 }
 
 body {
