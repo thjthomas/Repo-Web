@@ -21,7 +21,7 @@
           class="font-serif text-4xl lg:text-6xl font-bold text-foreground mb-6 transition-all duration-1000 delay-300"
           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
         >
-          Hi, I'm <span class="text-primary">Your Name</span>
+          Hi, I'm <span class="text-primary">Hong Jun</span>
         </h1>
 
         <p
