@@ -5,28 +5,43 @@
         <div class="font-serif font-bold text-xl text-primary">Portfolio</div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-8">
+        <nav class="hidden md:flex space-x-12 relative">
+                     <div 
+             class="absolute bottom-[-8px] h-0.5 bg-primary transition-all duration-300 ease-out"
+             :style="{
+               left: underlinePosition.left + 'px',
+               width: underlinePosition.width + 'px'
+             }"
+           ></div>
           <button
             @click="scrollToSection('home')"
             class="nav-link"
+            :class="{ 'nav-link-active': activeSection === 'home' }"
+            ref="homeRef"
           >
             Home
           </button>
           <button
             @click="scrollToSection('projects')"
             class="nav-link"
+            :class="{ 'nav-link-active': activeSection === 'projects' }"
+            ref="projectsRef"
           >
             Projects
           </button>
           <button
             @click="scrollToSection('skills')"
             class="nav-link"
+            :class="{ 'nav-link-active': activeSection === 'skills' }"
+            ref="skillsRef"
           >
             Skills
           </button>
           <button
             @click="scrollToSection('contact')"
             class="nav-link"
+            :class="{ 'nav-link-active': activeSection === 'contact' }"
+            ref="contactRef"
           >
             Contact
           </button>
@@ -75,10 +90,38 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick, computed } from 'vue'
 import { Menu, X } from 'lucide-vue-next'
 
 const isMenuOpen = ref(false)
+const activeSection = ref('home')
+
+// Refs for navigation buttons
+const homeRef = ref(null)
+const projectsRef = ref(null)
+const skillsRef = ref(null)
+const contactRef = ref(null)
+
+// Computed property for underline position
+const underlinePosition = computed(() => {
+  const refs = {
+    home: homeRef.value,
+    projects: projectsRef.value,
+    skills: skillsRef.value,
+    contact: contactRef.value
+  }
+  
+  const activeRef = refs[activeSection.value]
+  if (!activeRef) return { left: 0, width: 0 }
+  
+  const rect = activeRef.getBoundingClientRect()
+  const navRect = activeRef.closest('nav').getBoundingClientRect()
+  
+  return {
+    left: rect.left - navRect.left,
+    width: rect.width
+  }
+})
 
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId)
@@ -87,6 +130,32 @@ const scrollToSection = (sectionId) => {
   }
   isMenuOpen.value = false
 }
+
+const updateActiveSection = () => {
+  const sections = ['home', 'projects', 'skills', 'contact']
+  const scrollPosition = window.scrollY + 100 // Offset for better detection
+
+  for (const sectionId of sections) {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      const { offsetTop, offsetHeight } = element
+      if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+        activeSection.value = sectionId
+        break
+      }
+    }
+  }
+}
+
+onMounted(async () => {
+  await nextTick()
+  window.addEventListener('scroll', updateActiveSection)
+  updateActiveSection() // Set initial active section
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateActiveSection)
+})
 </script>
 
 <style scoped>
@@ -109,6 +178,10 @@ const scrollToSection = (sectionId) => {
 
 .nav-link:focus {
   outline: none;
+}
+
+.nav-link-active {
+  color: var(--primary);
 }
 
 .nav-link-mobile {
