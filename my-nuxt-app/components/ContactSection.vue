@@ -45,6 +45,16 @@
                 />
               </div>
               <div>
+                <label for="phone" class="block text-sm font-medium text-foreground mb-2">Phone Number</label>
+                <input
+                  id="phone"
+                  v-model="formData.phone"
+                  type="tel"
+                  class="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  placeholder="+60123456789"
+                />
+              </div>
+              <div>
                 <label for="subject" class="block text-sm font-medium text-foreground mb-2">Subject</label>
                 <input
                   id="subject"
@@ -63,7 +73,7 @@
                   rows="5"
                   required
                   class="w-full px-4 py-3 border border-border rounded-md bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
-                  placeholder="Tell me about your project or opportunity..."
+                  placeholder="Tell me anything that you want to say!"
                 ></textarea>
               </div>
               <button
@@ -90,8 +100,8 @@
                 </div>
                 <div>
                   <h4 class="font-medium text-foreground">Email</h4>
-                  <a href="mailto:your.email@example.com" class="text-muted-foreground hover:text-primary transition-colors">
-                    your.email@example.com
+                  <a href="mailto:hongjunteh2@gmail.com" class="text-muted-foreground hover:text-primary transition-colors">
+                    hongjunteh2@gmail.com
                   </a>
                 </div>
               </div>
@@ -101,7 +111,7 @@
                 </div>
                 <div>
                   <h4 class="font-medium text-foreground">Location</h4>
-                  <p class="text-muted-foreground">Your City, Country</p>
+                  <p class="text-muted-foreground">Penang, Malaysia</p>
                 </div>
               </div>
               <div class="flex items-center gap-4">
@@ -110,7 +120,7 @@
                 </div>
                 <div>
                   <h4 class="font-medium text-foreground">Availability</h4>
-                  <p class="text-muted-foreground">Open to new opportunities</p>
+                  <p class="text-muted-foreground">Studying, wait for me to graduate!</p>
                 </div>
               </div>
             </div>
@@ -162,6 +172,7 @@ const isSubmitting = ref(false)
 const formData = ref({
   name: '',
   email: '',
+  phone: '',
   subject: '',
   message: ''
 })
@@ -201,6 +212,7 @@ const handleSubmit = async () => {
   formData.value = {
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: ''
   }
