@@ -34,7 +34,7 @@
                 <span class="text-sm font-medium text-foreground">{{ skill.name }}</span>
                 <span class="text-sm text-muted-foreground">{{ skill.level }}%</span>
               </div>
-              <div class="w-full bg-secondary rounded-full h-2">
+              <div class="w-full bg-muted rounded-full h-2">
                 <div
                   class="bg-primary h-2 rounded-full transition-all duration-1000"
                   :style="{
