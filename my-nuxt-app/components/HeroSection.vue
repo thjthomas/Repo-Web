@@ -28,13 +28,13 @@
                                    <h1
             class="font-serif text-3xl lg:text-5xl font-bold text-foreground mb-6"
           >
-           <span class="typing-text">{{ typedHeading }}</span><span v-if="typedHeading === fullHeading" class="text-primary">{{ typedHighlight }}</span><span class="cursor">|</span>
+                       <span class="typing-text">{{ typedHeading }}</span><span v-if="typedHeading === fullHeading" class="text-primary">{{ typedHighlight }}</span><span v-if="isTypingComplete" class="cursor">|</span>
          </h1>
 
                                        <p
              class="text-lg lg:text-xl text-muted-foreground mb-8 max-w-lg ml-auto"
            >
-           <span class="typing-text">{{ typedDescription }}</span><span class="cursor">|</span>
+                       <span class="typing-text">{{ typedDescription }}</span><span v-if="isTypingComplete" class="cursor">|</span>
          </p>
 
 
@@ -83,21 +83,26 @@ const isVisible = ref(false)
 const typedHeading = ref('')
 const typedDescription = ref('')
 const typedHighlight = ref('')
+const isTypingComplete = ref(false)
+const hasStartedTyping = ref(false)
 
 const fullHeading = "Hi, I'm "
 const fullHeadingHighlight = "Hong Jun"
 const fullDescription = "Final year Computer Science student passionate about building innovative solutions and exploring cutting-edge technologies."
 
 const typeText = (text, targetRef, speed = 100) => {
-  let index = 0
-  const timer = setInterval(() => {
-    if (index < text.length) {
-      targetRef.value += text[index]
-      index++
-    } else {
-      clearInterval(timer)
-    }
-  }, speed)
+  return new Promise((resolve) => {
+    let index = 0
+    const timer = setInterval(() => {
+      if (index < text.length) {
+        targetRef.value += text[index]
+        index++
+      } else {
+        clearInterval(timer)
+        resolve()
+      }
+    }, speed)
+  })
 }
 
 const useScrollAnimation = (threshold = 0.1) => {
@@ -105,14 +110,32 @@ const useScrollAnimation = (threshold = 0.1) => {
     ([entry]) => {
       if (entry.isIntersecting) {
         isVisible.value = true
-        // Start typing animations when visible
-        setTimeout(() => typeText(fullHeading, typedHeading, 80), 500)
-        setTimeout(() => typeText(fullHeadingHighlight, typedHighlight, 80), 1500)
-        setTimeout(() => typeText(fullDescription, typedDescription, 50), 2500)
+        // Only start typing if it hasn't started yet
+        if (!hasStartedTyping.value) {
+          hasStartedTyping.value = true
+          startTypingAnimation()
+        }
       }
     },
     { threshold }
   )
+
+  const startTypingAnimation = async () => {
+    // Reset text if not complete
+    if (!isTypingComplete.value) {
+      typedHeading.value = ''
+      typedHighlight.value = ''
+      typedDescription.value = ''
+    }
+    
+    // Start typing sequence
+    await typeText(fullHeading, typedHeading, 80)
+    await typeText(fullHeadingHighlight, typedHighlight, 80)
+    await typeText(fullDescription, typedDescription, 50)
+    
+    // Mark typing as complete
+    isTypingComplete.value = true
+  }
 
   onMounted(() => {
     if (heroRef.value) {
