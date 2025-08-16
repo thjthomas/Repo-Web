@@ -13,27 +13,27 @@
     
     
     
-         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
-       <div
-         ref="heroRef"
-         class="max-w-4xl ml-auto text-right transition-all duration-1000"
-         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-       >
+                   <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+                 <div
+           ref="heroRef"
+           class="max-w-xl ml-auto text-right transition-all duration-1000"
+           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+         >
         <div
           class="mb-8 transition-all duration-1000 delay-200"
           :class="isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'"
         >
         </div>
 
-                 <h1
-           class="font-serif text-4xl lg:text-6xl font-bold text-foreground mb-6"
-         >
+                                   <h1
+            class="font-serif text-3xl lg:text-5xl font-bold text-foreground mb-6"
+          >
            <span class="typing-text">{{ typedHeading }}</span><span v-if="typedHeading === fullHeading" class="text-primary">{{ typedHighlight }}</span><span class="cursor">|</span>
          </h1>
 
-         <p
-           class="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl ml-auto"
-         >
+                                       <p
+             class="text-lg lg:text-xl text-muted-foreground mb-8 max-w-lg ml-auto"
+           >
            <span class="typing-text">{{ typedDescription }}</span><span class="cursor">|</span>
          </p>
 
