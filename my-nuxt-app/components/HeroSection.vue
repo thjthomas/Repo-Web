@@ -38,31 +38,31 @@
           class="flex justify-center space-x-6 transition-all duration-1000 delay-900"
           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
         >
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Github class="h-6 w-6" />
-            <span class="sr-only">GitHub</span>
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Linkedin class="h-6 w-6" />
-            <span class="sr-only">LinkedIn</span>
-          </a>
-          <a
-            href="mailto:your.email@example.com"
-            class="text-muted-foreground hover:text-primary transition-colors"
-          >
-            <Mail class="h-6 w-6" />
-            <span class="sr-only">Email</span>
-          </a>
+                     <a
+             href="https://github.com"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-muted-foreground hover:text-primary transition-all duration-300 hover:-translate-y-1 hover:scale-110"
+           >
+             <Github class="h-6 w-6" />
+             <span class="sr-only">GitHub</span>
+           </a>
+           <a
+             href="https://linkedin.com"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-muted-foreground hover:text-primary transition-all duration-300 hover:-translate-y-1 hover:scale-110"
+           >
+             <Linkedin class="h-6 w-6" />
+             <span class="sr-only">LinkedIn</span>
+           </a>
+           <a
+             href="mailto:your.email@example.com"
+             class="text-muted-foreground hover:text-primary transition-all duration-300 hover:-translate-y-1 hover:scale-110"
+           >
+             <Mail class="h-6 w-6" />
+             <span class="sr-only">Email</span>
+           </a>
         </div>
       </div>
     </div>
