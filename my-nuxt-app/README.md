@@ -1,12 +1,10 @@
 # TODO
 
-1. animation video for hero part
-2. review the design for hero part after animation video
-3. change the style for technical skills
-4. Get in touch part remove send me a message
-5. should add something keep moving to show the website is good
-6. header part can be better
-7. background design can be better
-8. button should float for all
-9. consider to add own story like pgcny and insurance
-10. change the code structure to exchange script part with html part
+1. change the style for technical skills
+2. Get in touch part remove send me a message
+3. should add something keep moving to show the website is good
+4. header part can be better
+5. background design can be better
+6. button should float for all
+7. consider to add own story like pgcny and insurance
+8. change the code structure to exchange script part with html part
