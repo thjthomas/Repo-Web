@@ -44,16 +44,17 @@
                   {{ tech }}
                 </span>
               </div>
-              <div v-if="!project.hideDetails" class="flex gap-3 mt-auto">
-               <a
-                 :href="project.githubUrl"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-sans text-sm flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-200"
-               >
-                 <Github class="h-4 w-4" />
-                 Code
-               </a>
+                             <div v-if="!project.hideDetails" class="flex gap-3 mt-auto">
+                <a
+                  v-if="!project.hideCode"
+                  :href="project.githubUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-sans text-sm flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-200"
+                >
+                  <Github class="h-4 w-4" />
+                  Code
+                </a>
                <a
                  v-if="!project.hideLiveDemo"
                  :href="project.liveUrl"
@@ -96,6 +97,7 @@ const projects = [
     technologies: ["Vue.js", "Nuxt.js", "Tailwind CSS", "TypeScript"],
     githubUrl: "https://github.com",
     liveUrl: "https://program.vilor.com/",
+    hideCode: true,
   },
   {
     title: "Final Year Project",
