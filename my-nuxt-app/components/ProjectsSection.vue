@@ -34,7 +34,7 @@
               <span
                 v-for="(tech, techIndex) in project.technologies"
                 :key="techIndex"
-                class="bg-accent/10 text-accent hover:bg-accent/20 px-2 py-1 rounded-md text-sm"
+                class="bg-amber-900/20 backdrop-blur-sm text-amber-900 hover:bg-amber-900/30 px-2 py-1 rounded-md text-sm font-sans font-medium border border-amber-900/30"
               >
                 {{ tech }}
               </span>
@@ -44,7 +44,7 @@
                 :href="project.githubUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="border border-border hover:bg-accent px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2"
+                class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-sans text-sm flex items-center gap-2 px-4 py-2 rounded-md transition-colors duration-200"
               >
                 <Github class="h-4 w-4" />
                 Code
@@ -53,7 +53,7 @@
                 :href="project.liveUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2"
+                class="btn-primary font-sans text-sm flex items-center gap-2"
               >
                 <ExternalLink class="h-4 w-4" />
                 Live Demo
