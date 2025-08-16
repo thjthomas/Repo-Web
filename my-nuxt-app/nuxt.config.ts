@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css'],
   
   app: {
+    baseURL: '/Repo-Web/',
     head: {
       title: 'Hello! I am Hong Jun',
       meta: [
