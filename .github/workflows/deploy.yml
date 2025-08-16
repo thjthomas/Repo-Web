@@ -25,9 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+        working-directory: my-nuxt-app/
 
       - name: Build Nuxt site
         run: pnpm generate
+        working-directory: my-nuxt-app/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
