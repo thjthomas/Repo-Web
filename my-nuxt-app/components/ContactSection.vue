@@ -13,7 +13,7 @@
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-48">
           <!-- Contact Form -->
           <div
             class="transition-all duration-1000"
@@ -123,37 +123,7 @@
                   <p class="text-muted-foreground">Studying, wait for me to graduate!</p>
                 </div>
               </div>
-            </div>
-
-            <div class="mt-8">
-              <h4 class="font-medium text-foreground mb-4">Follow me on</h4>
-              <div class="flex space-x-4">
-                <a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Github class="h-5 w-5" />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Linkedin class="h-5 w-5" />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Twitter class="h-5 w-5" />
-                </a>
-              </div>
-            </div>
+                         </div>
           </div>
         </div>
       </div>
@@ -163,7 +133,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Mail, MapPin, Clock, Github, Linkedin, Twitter } from 'lucide-vue-next'
+import { Mail, MapPin, Clock } from 'lucide-vue-next'
 
 const sectionRef = ref(null)
 const isVisible = ref(false)
