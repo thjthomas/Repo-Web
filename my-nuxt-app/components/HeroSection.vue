@@ -36,10 +36,10 @@
           class="flex flex-col sm:flex-row gap-4 justify-center mb-12 transition-all duration-1000 delay-700"
           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
         >
-          <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-md font-medium transition-colors">
+          <button class="btn-primary font-sans">
             View My Projects
           </button>
-          <button class="border border-border hover:bg-accent px-6 py-3 rounded-md font-medium transition-colors">
+          <button class="btn-outline font-sans">
             Download Resume
           </button>
         </div>
