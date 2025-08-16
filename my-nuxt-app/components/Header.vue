@@ -2,7 +2,7 @@
   <header class="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <div class="font-serif font-bold text-xl text-primary">Portfolio</div>
+        <div class="font-serif font-bold text-xl text-primary">HongJunTeh.com</div>
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-12 relative">
