@@ -8,10 +8,19 @@ export default defineConfig({
     presetTypography(),
     presetWebFonts({
       fonts: {
-        sans: 'Source Sans Pro',
-        serif: 'Playfair Display',
+        sans: {
+          name: 'Source Sans Pro',
+          weights: ['400', '600'],
+          italic: true,
+        },
+        serif: {
+          name: 'Playfair Display',
+          weights: ['400', '700'],
+          italic: true,
+        },
         mono: 'SF Mono, Monaco, Inconsolata, Roboto Mono, Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace',
       },
+      provider: 'google',
     }),
   ],
   theme: {
