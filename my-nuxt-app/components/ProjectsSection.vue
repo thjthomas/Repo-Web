@@ -12,14 +12,17 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <div
-          v-for="(project, index) in projects"
-          :key="index"
-          class="group hover:shadow-lg transition-all duration-700 border border-border/50 hover:border-accent/50 rounded-lg overflow-hidden bg-card"
-          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'"
-          :style="{ transitionDelay: `${index * 200}ms` }"
-        >
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+         <div
+           v-for="(project, index) in projects"
+           :key="index"
+           class="group hover:shadow-lg transition-all duration-700 border border-border/50 hover:border-accent/50 rounded-lg overflow-hidden bg-card"
+           :class="[
+             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12',
+             index === projects.length - 1 && projects.length % 2 === 1 ? 'md:col-span-2 md:max-w-md md:mx-auto' : ''
+           ]"
+           :style="{ transitionDelay: `${index * 200}ms` }"
+         >
           <div class="aspect-video overflow-hidden">
             <img
               :src="project.image || '/placeholder.svg'"
@@ -30,7 +33,7 @@
           <div class="p-6">
             <h3 class="font-serif text-xl text-card-foreground mb-2">{{ project.title }}</h3>
             <p class="text-muted-foreground mb-4">{{ project.description }}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
+            <div v-if="!project.hideDetails" class="flex flex-wrap gap-2 mb-4">
               <span
                 v-for="(tech, techIndex) in project.technologies"
                 :key="techIndex"
@@ -39,7 +42,7 @@
                 {{ tech }}
               </span>
             </div>
-            <div class="flex gap-3">
+            <div v-if="!project.hideDetails" class="flex gap-3">
               <a
                 :href="project.githubUrl"
                 target="_blank"
@@ -75,36 +78,29 @@ const isVisible = ref(false)
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack web application with user authentication, payment processing, and admin dashboard.",
+    title: "Gmail Automation",
+    description: "Developed and implemented Gmail Automation to simplify bulk email sending, while the user just need to input needed information into Google Sheet.",
     image: "/placeholder.svg",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+    technologies: ["Google Script"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
   },
   {
-    title: "Machine Learning Classifier",
-    description: "Image classification model using deep learning to identify objects with 95% accuracy.",
+    title: "Referrer System Website",
+    description: "Co-Developed a website for a referrer system for my internship company, where the user can refer a friend and get a reward.",
     image: "/placeholder.svg",
-    technologies: ["Python", "TensorFlow", "OpenCV", "Flask"],
+    technologies: ["Vue.js", "Nuxt.js", "Tailwind CSS", "TypeScript"],
     githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    liveUrl: "https://program.vilor.com/",
   },
   {
-    title: "Mobile Task Manager",
-    description: "Cross-platform mobile app for task management with real-time synchronization.",
+    title: "Final Year Project",
+    description: "My final year project still on the way! Stay tuned!",
     image: "/placeholder.svg",
-    technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-  },
-  {
-    title: "Blockchain Voting System",
-    description: "Secure voting platform using blockchain technology to ensure transparency and immutability.",
-    image: "/placeholder.svg",
-    technologies: ["Solidity", "Web3.js", "React", "Ethereum"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    technologies: [],
+    githubUrl: "",
+    liveUrl: "",
+    hideDetails: true,
   },
 ]
 
