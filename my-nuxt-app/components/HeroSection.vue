@@ -25,20 +25,17 @@
         >
         </div>
 
-        <h1
-          class="font-serif text-4xl lg:text-6xl font-bold text-foreground mb-6 transition-all duration-1000 delay-300"
-          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-        >
-          Hi, I'm <span class="text-primary">Hong Jun</span>
-        </h1>
-
-                 <p
-           class="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl ml-auto transition-all duration-1000 delay-500"
-           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+                 <h1
+           class="font-serif text-4xl lg:text-6xl font-bold text-foreground mb-6"
          >
-          Final year Computer Science student passionate about building innovative solutions and exploring
-          cutting-edge technologies.
-        </p>
+           <span class="typing-text">{{ typedHeading }}</span><span v-if="typedHeading === fullHeading" class="text-primary">{{ typedHighlight }}</span><span class="cursor">|</span>
+         </h1>
+
+         <p
+           class="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl ml-auto"
+         >
+           <span class="typing-text">{{ typedDescription }}</span><span class="cursor">|</span>
+         </p>
 
 
 
@@ -83,12 +80,35 @@ import { Github, Linkedin, Mail } from 'lucide-vue-next'
 
 const heroRef = ref(null)
 const isVisible = ref(false)
+const typedHeading = ref('')
+const typedDescription = ref('')
+const typedHighlight = ref('')
+
+const fullHeading = "Hi, I'm "
+const fullHeadingHighlight = "Hong Jun"
+const fullDescription = "Final year Computer Science student passionate about building innovative solutions and exploring cutting-edge technologies."
+
+const typeText = (text, targetRef, speed = 100) => {
+  let index = 0
+  const timer = setInterval(() => {
+    if (index < text.length) {
+      targetRef.value += text[index]
+      index++
+    } else {
+      clearInterval(timer)
+    }
+  }, speed)
+}
 
 const useScrollAnimation = (threshold = 0.1) => {
   const observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
         isVisible.value = true
+        // Start typing animations when visible
+        setTimeout(() => typeText(fullHeading, typedHeading, 80), 500)
+        setTimeout(() => typeText(fullHeadingHighlight, typedHighlight, 80), 1500)
+        setTimeout(() => typeText(fullDescription, typedDescription, 50), 2500)
       }
     },
     { threshold }
@@ -109,3 +129,19 @@ const useScrollAnimation = (threshold = 0.1) => {
 
 useScrollAnimation(0.2)
 </script>
+
+<style scoped>
+.cursor {
+  animation: blink 1s infinite;
+  color: var(--color-primary);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-text {
+  white-space: pre-wrap;
+}
+</style>
