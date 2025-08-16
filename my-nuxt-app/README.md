@@ -1,7 +1,7 @@
 # TODO
 
 1. change the style for technical skills
-2. Get in touch part remove send me a message
+2. get connect the column to send it to google sheet
 3. should add something keep moving to show the website is good
 4. header part can be better
 5. background design can be better
