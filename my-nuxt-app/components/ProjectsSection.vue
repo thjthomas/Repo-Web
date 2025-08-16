@@ -55,6 +55,7 @@
                  Code
                </a>
                <a
+                 v-if="!project.hideLiveDemo"
                  :href="project.liveUrl"
                  target="_blank"
                  rel="noopener noreferrer"
@@ -86,6 +87,7 @@ const projects = [
     technologies: ["Google Script"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
+    hideLiveDemo: true,
   },
   {
     title: "Referrer System Website",
