@@ -9,3 +9,4 @@
 7. background design can be better
 8. button should float for all
 9. consider to add own story like pgcny and insurance
+10. change the code structure to exchange script part with html part
