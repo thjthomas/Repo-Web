@@ -1,20 +1,28 @@
 <template>
-  <section id="home" class="py-20 lg:py-32">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div
-        ref="heroRef"
-        class="max-w-4xl mx-auto text-center transition-all duration-1000"
-        :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-      >
+  <section id="home" class="py-16 lg:py-12 relative overflow-hidden min-h-[80vh]">
+    <!-- Video Background -->
+         <video
+       autoplay
+       muted
+       loop
+       playsinline
+               class="absolute inset-0 w-full h-full object-cover z-0"
+     >
+      <source src="/hero-background.mp4" type="video/mp4">
+    </video>
+    
+    
+    
+         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+       <div
+         ref="heroRef"
+         class="max-w-4xl ml-auto text-right transition-all duration-1000"
+         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+       >
         <div
           class="mb-8 transition-all duration-1000 delay-200"
           :class="isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'"
         >
-          <img
-            src="/placeholder-mpm35.jpg"
-            alt="Professional headshot"
-            class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-primary/20"
-          />
         </div>
 
         <h1
@@ -24,20 +32,20 @@
           Hi, I'm <span class="text-primary">Hong Jun</span>
         </h1>
 
-        <p
-          class="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto transition-all duration-1000 delay-500"
-          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-        >
+                 <p
+           class="text-xl lg:text-2xl text-muted-foreground mb-8 max-w-2xl ml-auto transition-all duration-1000 delay-500"
+           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+         >
           Final year Computer Science student passionate about building innovative solutions and exploring
           cutting-edge technologies.
         </p>
 
 
 
-        <div
-          class="flex justify-center space-x-6 transition-all duration-1000 delay-900"
-          :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
-        >
+                 <div
+           class="flex justify-end space-x-6 transition-all duration-1000 delay-900"
+           :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+         >
                      <a
              href="https://github.com"
              target="_blank"
