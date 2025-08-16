@@ -77,7 +77,7 @@ const projects = [
   {
     title: "E-Commerce Platform",
     description: "Full-stack web application with user authentication, payment processing, and admin dashboard.",
-    image: "/modern-ecommerce-interface.png",
+    image: "/placeholder.svg",
     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
@@ -85,7 +85,7 @@ const projects = [
   {
     title: "Machine Learning Classifier",
     description: "Image classification model using deep learning to identify objects with 95% accuracy.",
-    image: "/ml-neural-network-visualization.png",
+    image: "/placeholder.svg",
     technologies: ["Python", "TensorFlow", "OpenCV", "Flask"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
@@ -93,7 +93,7 @@ const projects = [
   {
     title: "Mobile Task Manager",
     description: "Cross-platform mobile app for task management with real-time synchronization.",
-    image: "/mobile-task-management-app.png",
+    image: "/placeholder.svg",
     technologies: ["React Native", "Firebase", "Redux", "TypeScript"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
@@ -101,7 +101,7 @@ const projects = [
   {
     title: "Blockchain Voting System",
     description: "Secure voting platform using blockchain technology to ensure transparency and immutability.",
-    image: "/blockchain-voting-interface.png",
+    image: "/placeholder.svg",
     technologies: ["Solidity", "Web3.js", "React", "Ethereum"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
