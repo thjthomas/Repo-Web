@@ -84,7 +84,7 @@ const projects = [
   {
     title: "Gmail Automation",
     description: "Developed and implemented Gmail Automation to simplify bulk email sending, while the user just need to input needed information into Google Sheet.",
-    image: "/placeholder.svg",
+    image: "/Gmail-Automation.png",
     technologies: ["Google Script"],
     githubUrl: "https://github.com",
     liveUrl: "https://example.com",
@@ -93,7 +93,7 @@ const projects = [
   {
     title: "Referrer System Website",
     description: "Co-Developed a website for a referrer system for my internship company, where the user can refer a friend and get a reward.",
-    image: "/placeholder.svg",
+    image: "/Referrer-System-Website.png",
     technologies: ["Vue.js", "Nuxt.js", "Tailwind CSS", "TypeScript"],
     githubUrl: "https://github.com",
     liveUrl: "https://program.vilor.com/",
